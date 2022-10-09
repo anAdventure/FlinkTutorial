@@ -14,13 +14,12 @@ public class StreamWordCount {
 
         ParameterTool parameterTool = ParameterTool.fromArgs(args);
         String host = parameterTool.get("host");
-        Integer port = parameterTool.getInt("port")  ;
+        Integer port = parameterTool.getInt("port");
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         DataStreamSource<String> lineSource = env.socketTextStream(host, port);
         SingleOutputStreamOperator<Tuple2<String, Long>> operator = lineSource.flatMap((String s, Collector<Tuple2<String, Long>> collector) -> {
-
             for (String str : s.split(" ")) {
                 collector.collect(Tuple2.of(str, 1L));
             }

@@ -1,0 +1,7 @@
+Xzh,./home,1000
+Xzh2,./home3,2000
+ZS,./cart,3000
+ZS,./cart2,4000
+ZS,./cart3,5000
+ZS,./cart2?id=1,6000
+ZS,./cart2?id=2,7000
